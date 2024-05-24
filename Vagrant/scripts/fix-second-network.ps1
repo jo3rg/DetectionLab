@@ -15,6 +15,7 @@ if ( (Get-NetAdapter | Select-Object -First 1 | Select-Object -ExpandProperty In
     if ($dns) {
       Write-Host "$('[{0:HH:mm}]' -f (Get-Date)) Set DNS server address to $dns of interface $name"
       & netsh.exe interface ipv4 add dnsserver "$name" address=$dns index=1
+      & Set-NetIPInterface -InterfaceAlias "Ethernet 3" -InterfaceMetric 20
     }
     if ($dns2) {
       & netsh.exe interface ipv4 add dnsserver "$name" address=$dns2 index=2
@@ -52,6 +53,7 @@ if ($name) {
   if ($dns) {
     Write-Host "$('[{0:HH:mm}]' -f (Get-Date)) Set DNS server address to $dns of interface $name"
     & netsh.exe interface ipv4 add dnsserver "$name" address=$dns index=1
+    & Set-NetIPInterface -InterfaceAlias "Ethernet 3" -InterfaceMetric 20
   }
   if ($dns2) {
     & netsh.exe interface ipv4 add dnsserver "$name" address=$dns2 index=2
