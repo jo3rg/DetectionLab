@@ -60,7 +60,7 @@ Client:
     filename_windows: $TEMP/Velociraptor_Buffer.bin
     filename_darwin: /var/tmp/Velociraptor_Buffer.bin
 API:
-  hostname: logger
+  hostname: 192.168.56.105
   bind_address: 192.168.56.105
   bind_port: 8001
   bind_scheme: tcp
